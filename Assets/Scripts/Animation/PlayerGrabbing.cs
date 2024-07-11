@@ -15,7 +15,7 @@ bool isLeft;
     }
     private void GrabbingAnimation()
     {
-        if(Input.GetButton("Fire3"))
+        if(Input.GetButton("Fire2"))
         {
             animator.SetBool("isGrabbing", true);
         }

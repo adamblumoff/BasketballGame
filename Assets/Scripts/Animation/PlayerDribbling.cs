@@ -51,6 +51,5 @@ bool isLeft;
     private void StopCrossoverAnimation()
     {
         animator.SetBool("isCrossover", false);
-        Debug.Log("isCrossover = false");
     }
 }
