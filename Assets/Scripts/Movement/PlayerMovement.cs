@@ -57,7 +57,6 @@ public class PlayerMovement : MonoBehaviour
     
         Sprint();
         SprintBarUpdate();
-        Debug.Log(speed);
         
         controller.Move(move * speed * Time.deltaTime);
     }

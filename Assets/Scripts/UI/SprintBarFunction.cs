@@ -6,6 +6,7 @@ public class SprintBarFunction : MonoBehaviour
     void Start()
     {
         slider = GetComponent<Slider>();
+        slider.value = 100f;
     }
     public static void SetSprint(float sprintNum)
     {
