@@ -588,6 +588,18 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 916778123}
   m_SourcePrefab: {fileID: 100100000, guid: 289e9872aa315d24e981bfa897faca1a, type: 3}
+--- !u!1 &4508092046157459031 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8711937965535975386, guid: 289e9872aa315d24e981bfa897faca1a,
+    type: 3}
+  m_PrefabInstance: {fileID: 4508092046157459030}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &4508092046157459032 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3886686952698082009, guid: 289e9872aa315d24e981bfa897faca1a,
+    type: 3}
+  m_PrefabInstance: {fileID: 4508092046157459030}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &4711667064182059800
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -679,6 +691,16 @@ PrefabInstance:
       propertyPath: scoreCount
       value: 
       objectReference: {fileID: 1965956084}
+    - target: {fileID: 2345187656821699128, guid: 2b84323a1d6ef434fbe36c25ed169d6f,
+        type: 3}
+      propertyPath: TwoPointFloatingScore
+      value: 
+      objectReference: {fileID: 4508092046157459032}
+    - target: {fileID: 2345187656821699128, guid: 2b84323a1d6ef434fbe36c25ed169d6f,
+        type: 3}
+      propertyPath: ThreePointFloatingScore
+      value: 
+      objectReference: {fileID: 4508092046157459031}
     - target: {fileID: 2357149983138514132, guid: 2b84323a1d6ef434fbe36c25ed169d6f,
         type: 3}
       propertyPath: m_LocalPosition.x
