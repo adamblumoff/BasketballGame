@@ -7,6 +7,7 @@ TagManager:
   - Map
   - Body
   - Basketball
+  - Court
   layers:
   - Default
   - TransparentFX

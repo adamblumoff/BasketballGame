@@ -85,9 +85,8 @@ private Ray ray;
     private IEnumerator ShootingTimer()
     {
         
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(3f);
         basketball.transform.SetParent(transform);
-        basketball.transform.localScale /= 1.1f;
         animator.enabled = true;
         
     }
@@ -132,10 +131,32 @@ private Ray ray;
         distance = Mathf.Sqrt(Vector3.Distance(end_position.position, ReleasePosition.position));
         
         Debug.Log(distance);
+        if(distance <= 2.75f)
+        {
+            rb.mass = .36f;
+            shootingPower = 1f;
+        }
+        else if(distance <= 1.75f)
+        {
+            rb.mass = .38f;
+            shootingPower = 1.2f;
+        }
+        else
+        {
+            rb.mass = .35f;
+            shootingPower = 1.0f;
+        }
     
         targetPoint = ray.GetPoint(distance);
         direction = targetPoint - ReleasePosition.position + new Vector3(0f, 1f, 0f);;
         return direction;
 
+    }
+    private void ReturnToParent(Collider other)
+    {
+        if(other.gameObject.CompareTag("Court"))
+        {
+            StartCoroutine(ShootingTimer());
+        }
     }
 }

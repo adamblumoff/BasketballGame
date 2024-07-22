@@ -11,7 +11,7 @@ bool isLeft;
     // Update is called once per frame
     void Update()
     {
-        GrabbingAnimation();
+        //GrabbingAnimation();
     }
     private void GrabbingAnimation()
     {
