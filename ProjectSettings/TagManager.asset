@@ -8,6 +8,9 @@ TagManager:
   - Body
   - Basketball
   - Court
+  - Net
+  - Backboard
+  - Rim
   layers:
   - Default
   - TransparentFX

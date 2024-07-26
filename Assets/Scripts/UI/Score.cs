@@ -16,6 +16,7 @@ public class Score : MonoBehaviour
     Animator TwoPointFloatingAnimator;
     public GameObject ThreePointFloatingScore;
     Animator ThreePointFloatingAnimator;
+    public AudioClip swish;
     // Start is called before the first frame update
     void Start()
     {
@@ -30,12 +31,14 @@ public class Score : MonoBehaviour
     {
         if(other.gameObject.CompareTag("Basketball") && isTwoPoint.is2Point)
         {
+            AudioManager.PlayAudioClip(swish, .6f);
             AddScore2();
             StartCoroutine(TwoPointFloatAnimation());
             
         }
         else if(other.gameObject.CompareTag("Basketball") && !isTwoPoint.is2Point)
         {
+            AudioManager.PlayAudioClip(swish, .6f);
             AddScore3();
             StartCoroutine(ThreePointFloatAnimation());
         }
@@ -61,6 +64,7 @@ public class Score : MonoBehaviour
         yield return new WaitForSeconds(2f);
         TwoPointFloatingScore.SetActive(false);
         TwoPointFloatingAnimator.SetBool("isScoring", false);
+        
     }
     private IEnumerator ThreePointFloatAnimation()
     {
@@ -69,5 +73,7 @@ public class Score : MonoBehaviour
         yield return new WaitForSeconds(2f);
         ThreePointFloatingScore.SetActive(false);
         ThreePointFloatingAnimator.SetBool("isScoring", false);
+        
     }
+
 }

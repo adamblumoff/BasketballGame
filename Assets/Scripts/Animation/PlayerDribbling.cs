@@ -7,7 +7,9 @@ public class PlayerDribbling : MonoBehaviour
 public Animator animator;
 bool switches = false; 
 bool isLeft; 
-
+bool isForward = false;
+public AudioClip ballBouncing;
+public AudioClip squeak;
     // Update is called once per frame
     void Update()
     {
@@ -40,16 +42,39 @@ bool isLeft;
                 animator.SetBool("isCrossover", true);
                 isLeft = !isLeft;
             }
+            
         }
         else if(y == 0f)
         {
             animator.SetBool("isShooting", false);
             animator.SetBool("isDribbling", false);
             animator.SetBool("isCrossover", false);
+            isForward = false;
         }
+        else if(y <= 0f)
+        {
+            isForward = false;
+        }
+         else if(y > 0f)
+        {
+            if(!isForward)
+            {
+                PlaySqueakAudio();
+                isForward = true;
+            }
+        }
+        
     }
     private void StopCrossoverAnimation()
     {
         animator.SetBool("isCrossover", false);
+    }
+    private void PlayBouncingAudio()
+    {
+        AudioManager.PlayAudioClip(ballBouncing, 1f);
+    }
+    private void PlaySqueakAudio()
+    {
+        AudioManager.PlayAudioClip(squeak, .7f);
     }
 }

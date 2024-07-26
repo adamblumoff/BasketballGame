@@ -130,7 +130,6 @@ private Ray ray;
         ray = Camera.ViewportPointToRay(new Vector3(0.5f,1.25f,0f));
         distance = Mathf.Sqrt(Vector3.Distance(end_position.position, ReleasePosition.position));
         
-        Debug.Log(distance);
         if(distance <= 2.75f)
         {
             rb.mass = .36f;
@@ -151,6 +150,10 @@ private Ray ray;
         direction = targetPoint - ReleasePosition.position + new Vector3(0f, 1f, 0f);;
         return direction;
 
+    }
+    public float GetDistance()
+    {
+        return distance;
     }
     private void ReturnToParent(Collider other)
     {
