@@ -18,6 +18,7 @@ public Transform ReleasePosition;
 public Camera Camera;
 public LineRenderer LineRenderer;
 private Rigidbody rb;
+private PlayerMovement player_mov;
 float distance;
 [SerializeField]
 [Range(10, 100)]
@@ -43,6 +44,7 @@ private Ray ray;
             }
         }
         rb = basketball.GetComponent<Rigidbody>();
+        player_mov = GetComponentInParent<PlayerMovement>();
     }
     void Update()
     {
@@ -86,8 +88,12 @@ private Ray ray;
     {
         
         yield return new WaitForSeconds(3f);
+        animator.SetBool("isShooting", false);
+        animator.SetBool("isDribbling", false);
+        animator.SetBool("isCrossover", false);
         basketball.transform.SetParent(transform);
         animator.enabled = true;
+        player_mov.isShooting = false;
         
     }
      private void DrawProjection()
@@ -161,5 +167,9 @@ private Ray ray;
         {
             StartCoroutine(ShootingTimer());
         }
+    }
+    private void LockLocation()
+    {
+        player_mov.isShooting = true;
     }
 }

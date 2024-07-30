@@ -47,7 +47,7 @@ public AudioClip squeak;
         else if(y == 0f)
         {
             animator.SetBool("isShooting", false);
-            animator.SetBool("isDribbling", false);
+            //animator.SetBool("isDribbling", false);
             animator.SetBool("isCrossover", false);
             isForward = false;
         }

@@ -17,6 +17,7 @@ public class Score : MonoBehaviour
     public GameObject ThreePointFloatingScore;
     Animator ThreePointFloatingAnimator;
     public AudioClip swish;
+    public bool isTrigger;
     // Start is called before the first frame update
     void Start()
     {
@@ -29,18 +30,23 @@ public class Score : MonoBehaviour
 
     void OnTriggerEnter (Collider other)
     {
-        if(other.gameObject.CompareTag("Basketball") && isTwoPoint.is2Point)
+        if(other.gameObject.CompareTag("Basketball") && isTwoPoint.is2Point && isTrigger)
         {
             AudioManager.PlayAudioClip(swish, .6f);
             AddScore2();
             StartCoroutine(TwoPointFloatAnimation());
-            
+            isTrigger = false;
         }
-        else if(other.gameObject.CompareTag("Basketball") && !isTwoPoint.is2Point)
+        else if(other.gameObject.CompareTag("Basketball") && !isTwoPoint.is2Point && isTrigger)
         {
             AudioManager.PlayAudioClip(swish, .6f);
             AddScore3();
             StartCoroutine(ThreePointFloatAnimation());
+            isTrigger = false;
+        }
+        else
+        {
+            isTrigger = false;
         }
     }
     private static void AddScore2()

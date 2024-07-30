@@ -21,6 +21,7 @@ public class PlayerMovement : MonoBehaviour
     public bool isSprinting = false;
     private bool isTired = false;
     public float sprintNum = 100f;
+    public bool isShooting = false;
 
     // Update is called once per frame
     void Update()
@@ -52,21 +53,25 @@ public class PlayerMovement : MonoBehaviour
         float x = Input.GetAxis("Horizontal");
         float z = Input.GetAxis("Vertical");
 
-        Vector3 move = transform.right * x + transform.forward * z;
+        Vector3 move = Vector3.zero;
+        if(!isShooting)
+        {
+            move = transform.right * x + transform.forward * z;
+        }
         
-    
         Sprint();
         SprintBarUpdate();
         
         controller.Move(move * speed * Time.deltaTime);
     }
+
     public void ChangeJumpStatus()
     {
         isJumping = !isJumping;
     }
     void Sprint()
     {
-        if(Input.GetButton("Fire3"))
+        if(Input.GetButton("Fire3") && !isShooting)
         {
             if(!isTired)
             {
