@@ -14,7 +14,7 @@ public class PlayerMovement : MonoBehaviour
     public Transform groundCheck;
     private float groundDistance = 0.1f;
     public LayerMask groundMask;
-    bool isGrounded;
+    public bool isGrounded;
     Vector3 velocity;
     public Animator animator;
     bool isJumping = false;
@@ -22,8 +22,8 @@ public class PlayerMovement : MonoBehaviour
     private bool isTired = false;
     public float sprintNum = 100f;
     public bool isShooting = false;
-
     // Update is called once per frame
+    
     void Update()
     {
         Move();
@@ -64,7 +64,6 @@ public class PlayerMovement : MonoBehaviour
         
         controller.Move(move * speed * Time.deltaTime);
     }
-
     public void ChangeJumpStatus()
     {
         isJumping = !isJumping;
@@ -120,5 +119,6 @@ public class PlayerMovement : MonoBehaviour
             isTired = false;
         }
     }
+    
 
 }

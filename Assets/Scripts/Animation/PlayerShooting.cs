@@ -172,4 +172,29 @@ private Ray ray;
     {
         player_mov.isShooting = true;
     }
+    void DunkBasketball()
+    {
+        animator.enabled = false;
+        player_mov.isShooting = false;
+        
+        
+        rb.velocity = Vector3.zero;
+        rb.angularVelocity = Vector3.zero;
+        rb.isKinematic = false;
+
+        rb.transform.SetParent(null);
+        rb.AddForce(-Vector3.up, ForceMode.Impulse);
+        animator.SetBool("isDunking", false);
+
+        StartCoroutine(DunkingTimer());
+    }
+    IEnumerator DunkingTimer()
+    {
+        yield return new WaitForSeconds(1f);
+        animator.SetBool("isShooting", false);
+        animator.SetBool("isDribbling", false);
+        animator.SetBool("isCrossover", false);
+        basketball.transform.SetParent(transform);
+        animator.enabled = true;
+    }
 }
