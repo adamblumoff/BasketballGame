@@ -7,15 +7,12 @@ public class BasketballController : MonoBehaviour
 {
     public AudioClip bouncing;
     public AudioClip backboard;
-     public AudioClip rim;
-    void Start()
-    {
-    }
-
+    public AudioClip rim;
     void OnCollisionEnter (Collision collision)
     {
         if(collision.gameObject.CompareTag("Court") && this.gameObject.transform.parent == null)
         {
+            ResetStreak();
             AudioManager.PlayAudioClip(bouncing, 1f);
         }
         else if(collision.gameObject.CompareTag("Backboard") && this.gameObject.transform.parent == null)
@@ -26,5 +23,15 @@ public class BasketballController : MonoBehaviour
         {
             AudioManager.PlayAudioClip(rim, 1f);
         }
+        
+        
     }
+    private void ResetStreak()
+    {
+        if(!Score.isMake)
+        {
+            Score.streak = 0;
+        }
+    }
+  
 }

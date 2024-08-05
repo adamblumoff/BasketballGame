@@ -17,6 +17,7 @@ public Transform end_position;
 public Transform ReleasePosition;
 public Camera Camera;
 public LineRenderer LineRenderer;
+public BasketballController basketball_controller;
 private Rigidbody rb;
 private PlayerMovement player_mov;
 float distance;
@@ -82,11 +83,11 @@ private Ray ray;
         rb.transform.SetParent(null);
         rb.AddForce(GetDirection() * shootingPower, ForceMode.Impulse);
 
+
         StartCoroutine(ShootingTimer());
     }
     private IEnumerator ShootingTimer()
     {
-        
         yield return new WaitForSeconds(3f);
         animator.SetBool("isShooting", false);
         animator.SetBool("isDribbling", false);
@@ -186,6 +187,8 @@ private Ray ray;
         rb.AddForce(-Vector3.up, ForceMode.Impulse);
         animator.SetBool("isDunking", false);
 
+    
+
         StartCoroutine(DunkingTimer());
     }
     IEnumerator DunkingTimer()
@@ -197,4 +200,5 @@ private Ray ray;
         basketball.transform.SetParent(transform);
         animator.enabled = true;
     }
+    
 }

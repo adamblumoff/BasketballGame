@@ -37,7 +37,6 @@ public class PlayerDunking : MonoBehaviour
         else
         {
             animator.SetBool("isDunking", false);
-            animator.SetBool("isShooting", false);
             playerMovement.jumpHeight = .8f;
         }
     } 
