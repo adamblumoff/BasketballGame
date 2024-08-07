@@ -23,7 +23,10 @@ public class PlayerMovement : MonoBehaviour
     public float sprintNum = 100f;
     public bool isShooting = false;
     // Update is called once per frame
-    
+    void Start()
+    {
+        isShooting = false;
+    }
     void Update()
     {
         Move();
@@ -54,11 +57,14 @@ public class PlayerMovement : MonoBehaviour
         float z = Input.GetAxis("Vertical");
 
         Vector3 move = Vector3.zero;
-        if(!isShooting)
+        if(!isShooting && isGrounded)
         {
             move = transform.right * x + transform.forward * z;
         }
-        
+        if(!isGrounded)
+        {
+            animator.SetBool("isDribbling", false);
+        }
         Sprint();
         SprintBarUpdate();
         

@@ -18,6 +18,7 @@ public Transform ReleasePosition;
 public Camera Camera;
 public LineRenderer LineRenderer;
 public BasketballController basketball_controller;
+public PauseMenu pauseMenu;
 private Rigidbody rb;
 private PlayerMovement player_mov;
 float distance;
@@ -69,6 +70,16 @@ private Ray ray;
         {
             LineRenderer.enabled = false;
         }
+
+        if(animator.GetBool("isShooting") && !animator.GetBool("isDunking"))
+        {
+            LockLocation();
+        }
+        else
+        {
+            UnLockLocation();
+        }
+        
 
     }
     private void ShootBasketball()
@@ -171,7 +182,16 @@ private Ray ray;
     }
     private void LockLocation()
     {
-        player_mov.isShooting = true;
+        if(!pauseMenu.paused)
+        {
+            player_mov.isShooting = true;
+        }
+        
+    }
+    private void UnLockLocation()
+    {
+        player_mov.isShooting = false;
+        
     }
     void DunkBasketball()
     {
