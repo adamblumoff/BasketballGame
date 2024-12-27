@@ -361,6 +361,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PauseMenuPanel: {fileID: 95669386525656407}
+  paused: 0
 --- !u!1 &1406248706507557997
 GameObject:
   m_ObjectHideFlags: 0
@@ -784,7 +785,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -72.7, y: -18.715672}
+  m_AnchoredPosition: {x: -72.69995, y: -18.715698}
   m_SizeDelta: {x: 74.1109, y: 24.1361}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &6109662260423583619
@@ -818,7 +819,7 @@ MonoBehaviour:
   m_text: 'Score:'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2100000, guid: e73a58f6e2794ae7b1b7e50b7fb811b0, type: 2}
+  m_sharedMaterial: {fileID: 2100000, guid: 9ad269c99dcf42b7aedefd83dd5a7b9d, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1208,6 +1209,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PauseMenuPanel: {fileID: 95669386525656407}
+  paused: 0
 --- !u!1 &6000643134910369029
 GameObject:
   m_ObjectHideFlags: 0
@@ -1242,7 +1244,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -23.100023, y: -18.715672}
+  m_AnchoredPosition: {x: -23.099976, y: -18.715698}
   m_SizeDelta: {x: 33.4806, y: 24.136}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &892549895817432522
@@ -1276,7 +1278,7 @@ MonoBehaviour:
   m_text: 0
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2100000, guid: e73a58f6e2794ae7b1b7e50b7fb811b0, type: 2}
+  m_sharedMaterial: {fileID: 2100000, guid: 9ad269c99dcf42b7aedefd83dd5a7b9d, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1625,6 +1627,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PauseMenuPanel: {fileID: 95669386525656407}
+  paused: 0
 --- !u!1 &6937863751381850431
 GameObject:
   m_ObjectHideFlags: 0
@@ -1916,6 +1919,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PauseMenuPanel: {fileID: 95669386525656407}
+  paused: 0
 --- !u!1 &7413420978807023922
 GameObject:
   m_ObjectHideFlags: 0

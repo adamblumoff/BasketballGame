@@ -59,7 +59,7 @@ private Ray ray;
             animator.SetBool("isShooting", true);
             if(Input.GetButton("Fire2"))
             {
-            DrawProjection();
+                DrawProjection();
             }
         }
         else if(Input.GetButton("Fire2"))

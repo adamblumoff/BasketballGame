@@ -26,7 +26,7 @@ Transform:
   m_GameObject: {fileID: 1866064060798510513}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 2.041, z: 0.683}
+  m_LocalPosition: {x: 0, y: 2.041, z: 1.67}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -53,7 +53,7 @@ LineRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 0b8b42ab83e59874f9f193aeb73b52bf, type: 2}
+  - {fileID: 3016479151454471876, guid: 380596843a0792245a87883c142c8c4b, type: 3}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -149,6 +149,7 @@ GameObject:
   - component: {fileID: 9209534449571503251}
   - component: {fileID: 4874186714879296527}
   - component: {fileID: 1494880552709619185}
+  - component: {fileID: 4499398446606204973}
   m_Layer: 7
   m_Name: FPS Camera
   m_TagString: MainCamera
@@ -289,6 +290,22 @@ MonoBehaviour:
   mouseSensitivity: 80
   playerBody: {fileID: 2733305544023836561}
   xRotation: 0
+--- !u!114 &4499398446606204973
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3717874068526469040}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2ab8353b5ebd32545867da143199a814, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  DefaultPosInfluence: {x: 0.15, y: 0.15, z: 0.15}
+  DefaultRotInfluence: {x: 1, y: 1, z: 1}
+  RestPositionOffset: {x: 0, y: 3, z: 0}
+  RestRotationOffset: {x: 0, y: 0, z: 0}
 --- !u!1 &4278249325962886897
 GameObject:
   m_ObjectHideFlags: 0
@@ -3413,6 +3430,7 @@ MonoBehaviour:
   Camera: {fileID: 4268184232620752810}
   LineRenderer: {fileID: 3553467500970406251}
   basketball_controller: {fileID: 2514149765194772328}
+  pauseMenu: {fileID: 0}
   LinePoints: 10
   TimeBetweenPoints: 0.1
 --- !u!114 &7992862298408659064
