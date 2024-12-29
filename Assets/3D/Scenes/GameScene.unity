@@ -13,7 +13,7 @@ OcclusionCullingSettings:
 --- !u!104 &2
 RenderSettings:
   m_ObjectHideFlags: 0
-  serializedVersion: 9
+  serializedVersion: 10
   m_Fog: 0
   m_FogColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
   m_FogMode: 3
@@ -38,13 +38,12 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.3559311, g: 0.74789524, b: 0.8040546, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
-  serializedVersion: 12
-  m_GIWorkflowMode: 1
+  serializedVersion: 13
+  m_BakeOnSceneLoad: 0
   m_GISettings:
     serializedVersion: 2
     m_BounceScale: 1
@@ -67,9 +66,6 @@ LightmapSettings:
     m_LightmapParameters: {fileID: 0}
     m_LightmapsBakeMode: 1
     m_TextureCompression: 1
-    m_FinalGather: 0
-    m_FinalGatherFiltering: 1
-    m_FinalGatherRayCount: 256
     m_ReflectionCompression: 2
     m_MixedBakeMode: 2
     m_BakeBackend: 1
@@ -656,6 +652,36 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4268184232620752810, guid: 90a3f96fad62d2a44b23083995f0720e,
+        type: 3}
+      propertyPath: m_OcclusionCulling
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4268184232620752810, guid: 90a3f96fad62d2a44b23083995f0720e,
+        type: 3}
+      propertyPath: m_BackGroundColor.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4268184232620752810, guid: 90a3f96fad62d2a44b23083995f0720e,
+        type: 3}
+      propertyPath: m_BackGroundColor.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4268184232620752810, guid: 90a3f96fad62d2a44b23083995f0720e,
+        type: 3}
+      propertyPath: m_BackGroundColor.g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4268184232620752810, guid: 90a3f96fad62d2a44b23083995f0720e,
+        type: 3}
+      propertyPath: m_BackGroundColor.r
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4268184232620752810, guid: 90a3f96fad62d2a44b23083995f0720e,
+        type: 3}
+      propertyPath: m_CullingMask.m_Bits
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: 4499398446606204973, guid: 90a3f96fad62d2a44b23083995f0720e,
         type: 3}
       propertyPath: m_Enabled
@@ -675,6 +701,26 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 4874186714879296527, guid: 90a3f96fad62d2a44b23083995f0720e,
+        type: 3}
+      propertyPath: m_Antialiasing
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7250773205423391034, guid: 90a3f96fad62d2a44b23083995f0720e,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 44.249107
+      objectReference: {fileID: 0}
+    - target: {fileID: 7250773205423391034, guid: 90a3f96fad62d2a44b23083995f0720e,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 44.249107
+      objectReference: {fileID: 0}
+    - target: {fileID: 7250773205423391034, guid: 90a3f96fad62d2a44b23083995f0720e,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 44.249107
       objectReference: {fileID: 0}
     - target: {fileID: 7937504445999002899, guid: 90a3f96fad62d2a44b23083995f0720e,
         type: 3}
@@ -763,7 +809,22 @@ PrefabInstance:
     - target: {fileID: 8792186993626931807, guid: 7d9ca6d2123729042986912f9fec7c34,
         type: 3}
       propertyPath: m_Intensity
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8792186993626931807, guid: 7d9ca6d2123729042986912f9fec7c34,
+        type: 3}
+      propertyPath: m_Lightmapping
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8792186993626931807, guid: 7d9ca6d2123729042986912f9fec7c34,
+        type: 3}
+      propertyPath: m_ColorTemperature
+      value: 5811
+      objectReference: {fileID: 0}
+    - target: {fileID: 8792186993626931807, guid: 7d9ca6d2123729042986912f9fec7c34,
+        type: 3}
+      propertyPath: m_CullingMask.m_Bits
+      value: 4294967295
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -778,6 +839,11 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1122039559550392765, guid: 2b84323a1d6ef434fbe36c25ed169d6f,
+        type: 3}
+      propertyPath: m_CastShadows
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1516383826973104822, guid: 2b84323a1d6ef434fbe36c25ed169d6f,
         type: 3}
       propertyPath: m_SphereColliders.Array.data[0].first
@@ -863,6 +929,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: basketball_court
       objectReference: {fileID: 0}
+    - target: {fileID: 5661282579156272041, guid: 2b84323a1d6ef434fbe36c25ed169d6f,
+        type: 3}
+      propertyPath: m_CastShadows
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5661282579156272041, guid: 2b84323a1d6ef434fbe36c25ed169d6f,
+        type: 3}
+      propertyPath: m_DynamicOccludee
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6092162378690642673, guid: 2b84323a1d6ef434fbe36c25ed169d6f,
         type: 3}
       propertyPath: animator
@@ -873,6 +949,16 @@ PrefabInstance:
       propertyPath: playerMovement
       value: 
       objectReference: {fileID: 260520409}
+    - target: {fileID: 7099045626138564063, guid: 2b84323a1d6ef434fbe36c25ed169d6f,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7281788849013369607, guid: 2b84323a1d6ef434fbe36c25ed169d6f,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

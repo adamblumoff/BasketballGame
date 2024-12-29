@@ -47,6 +47,7 @@ private Ray ray;
         }
         rb = basketball.GetComponent<Rigidbody>();
         player_mov = GetComponentInParent<PlayerMovement>();
+
     }
     void Update()
     {
@@ -54,7 +55,7 @@ private Ray ray;
     }
     private void ShootingAnimation()
     {
-        if(Input.GetButton("Fire1"))
+        if(Input.GetButton("Fire1")) 
         {
             animator.SetBool("isShooting", true);
             if(Input.GetButton("Fire2"))
@@ -87,7 +88,7 @@ private Ray ray;
         animator.enabled = false;
         
         
-        rb.velocity = Vector3.zero;
+        rb.linearVelocity = Vector3.zero;
         rb.angularVelocity = Vector3.zero;
         rb.isKinematic = false;
 
@@ -199,7 +200,7 @@ private Ray ray;
         player_mov.isShooting = false;
         
         
-        rb.velocity = Vector3.zero;
+        rb.linearVelocity = Vector3.zero;
         rb.angularVelocity = Vector3.zero;
         rb.isKinematic = false;
 
