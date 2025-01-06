@@ -19,7 +19,7 @@ public class PlayerMovement2D : MonoBehaviour
     float verticalMove = 0f;
     bool isHorizontal = false;
     bool isDown = true;
-    public bool Shooting = false;
+    public bool isShooting = false;
     private bool isSoundPlaying = false;
     bool jump = false;
 
@@ -36,6 +36,7 @@ public class PlayerMovement2D : MonoBehaviour
             Movement();
             MovementSound();
             Jump();
+            
         }
         else
         {
@@ -49,7 +50,7 @@ public class PlayerMovement2D : MonoBehaviour
     void FixedUpdate()
     {
         // Move our character
-        controller.Move(horizontalMove * Time.fixedDeltaTime, Shooting, jump);
+        controller.Move(horizontalMove * Time.fixedDeltaTime, isShooting, jump);
     
 
     }
@@ -84,9 +85,9 @@ public class PlayerMovement2D : MonoBehaviour
     }
     private void ShootingAnimation() //sets rapid fire and Shooting animations
     {
-        if (Input.GetButtonDown("Fire1") && !character.isHit)
+        if (Input.GetButtonDown("Fire1"))
         {
-            Shooting = true;
+            isShooting = true;
             animator.SetBool("isShooting", true);
         }
 
@@ -112,7 +113,7 @@ public class PlayerMovement2D : MonoBehaviour
     }
     public void StopShooting() //gets called in animator as an animation event
     {
-        Shooting = false;
+        isShooting = false;
         animator.SetBool("isShooting", false);
     }
 
