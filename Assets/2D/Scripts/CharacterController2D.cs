@@ -14,9 +14,9 @@ public class CharacterController2D : MonoBehaviour
 
     [SerializeField] public GameObject GameOverPanel; //Canvas for game over menu
 
-	[SerializeField] private float JumpForce = 300f;                            // Amount of force added when the player jumps.
+	[Range(0, 2000f)][SerializeField] private float JumpForce = 500f;                           // Amount of force added when the player jumps.
 	[Range(0, .3f)][SerializeField] private float MovementSmoothing = .05f; // How much to smooth out the movement
-	public float airFactor;
+	[Range(.7f, 1f)][SerializeField] private float airFactor = .99f;
 
 
 
@@ -41,21 +41,13 @@ public class CharacterController2D : MonoBehaviour
 	
 
 
-	[Header("Events")]
-	[Space]
-
-	public UnityEvent OnLandEvent;
-
-	[System.Serializable]
-	public class BoolEvent : UnityEvent<bool> { }
 
 
 	void Awake()
 	{
 		Rigidbody2D = GetComponent<Rigidbody2D>();
 
-		if (OnLandEvent == null)
-			OnLandEvent = new UnityEvent();
+
 
 		playerAnimator = GetComponent<Animator>();
 		this.GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f, 1f);
@@ -64,7 +56,6 @@ public class CharacterController2D : MonoBehaviour
 
 	void Update()
 	{
-		bool wasGrounded = Grounded;
 		Grounded = false;
 
 		// The player is grounded if a circlecast to the groundcheck position hits anything designated as ground
@@ -75,8 +66,6 @@ public class CharacterController2D : MonoBehaviour
 			if (colliders[i].gameObject != gameObject)
 			{
 				Grounded = true;
-				if (!wasGrounded)
-					OnLandEvent.Invoke();
 			}
 		}
 		
@@ -88,7 +77,7 @@ public class CharacterController2D : MonoBehaviour
 	}
 
 
-	public void Move(float move, bool horizontal, bool attacking, bool jump)
+	public void Move(float move, bool attacking, bool jump)
 	{
 		//only control the player if grounded or airControl is turned on
 		if (Grounded || AirControl)
@@ -138,10 +127,7 @@ public class CharacterController2D : MonoBehaviour
 				Flip();
 			}
 			// Switches to shooting in air
-			if (playerAnimator.GetBool("isShooting"))
-				playerAnimator.SetBool("IsJumping", false);
-			else
-				playerAnimator.SetBool("IsJumping", true);
+			playerAnimator.SetBool("isJumping", false);
 		}
 
 	}
@@ -151,10 +137,10 @@ public class CharacterController2D : MonoBehaviour
 	{
 		// Switch the way the player is labelled as facing.
 		FacingRight = !FacingRight;
-		transform.Rotate(180f, 0f,0f);
+		transform.Rotate(0f, 180f,0f);
 		
 	}
-	/* public void TakeDamage (int damage)
+	/* public void TakeDamage (int damage
 	{
 		health -= damage;
 		
@@ -169,7 +155,7 @@ public class CharacterController2D : MonoBehaviour
 	private void DieAnimation()
 	{
 		Rigidbody2D.linearVelocity = stop;
-		this.GetComponent<SpriteRenderer>().color = new Color(255f, 0f, 0f, 0.5f);
+		//this.GetComponent<SpriteRenderer>().color = new Color(255f, 0f, 0f, 0.5f);
 		SoundManager.PlayDieSound(dieClip);
 		playerAnimator.SetBool("isDead", true);
 	}

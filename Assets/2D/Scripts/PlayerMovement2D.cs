@@ -35,7 +35,7 @@ public class PlayerMovement2D : MonoBehaviour
         {
             Movement();
             MovementSound();
-            JumpingAnimation();
+            Jump();
         }
         else
         {
@@ -49,10 +49,8 @@ public class PlayerMovement2D : MonoBehaviour
     void FixedUpdate()
     {
         // Move our character
-        if (isHorizontal)
-            controller.Move(horizontalMove * Time.fixedDeltaTime, isHorizontal, Shooting, jump);
-        else
-            controller.Move(verticalMove * Time.fixedDeltaTime, isHorizontal, Shooting, jump);
+        controller.Move(horizontalMove * Time.fixedDeltaTime, Shooting, jump);
+    
 
     }
 
@@ -68,41 +66,20 @@ public class PlayerMovement2D : MonoBehaviour
     private void Movement() //conditions for movement and sets animator
     {
         horizontalMove = Input.GetAxisRaw("Horizontal2D") * runSpeed;
-        verticalMove = Input.GetAxisRaw("Vertical2D") * runSpeed;
-        
+    
 
         if (horizontalMove > 0)
         {
-            isHorizontal = true;
             animator.SetFloat("Horizontal2D", Math.Abs(horizontalMove));
-            animator.SetFloat("Vertical2D", 0f);
         }
         else if (horizontalMove < 0)
         {   
-            isHorizontal = true;
             animator.SetFloat("Horizontal2D", Math.Abs(horizontalMove));
-            animator.SetFloat("Vertical2D", 0f);
-        }
-        else if (verticalMove > 0)
-        {
-            isHorizontal = false;
-            isDown = false;
-            animator.SetFloat("Vertical2D", Math.Abs(verticalMove));
-            animator.SetFloat("Horizontal2D", 0f);
-        }
-        else if (verticalMove < 0)
-        {
-            isHorizontal = false;
-            isDown = true;
-            animator.SetFloat("Vertical2D", Math.Abs(verticalMove));
-            animator.SetFloat("Horizontal2D", 0f);
         }
         else
         {
-            animator.SetFloat("Vertical2D", 0f);
             animator.SetFloat("Horizontal2D", 0f);
         }
-        MovementAnimation();
 
     }
     private void ShootingAnimation() //sets rapid fire and Shooting animations
@@ -114,26 +91,24 @@ public class PlayerMovement2D : MonoBehaviour
         }
 
     }
-    private void MovementAnimation() //sets movement in animator
-    {
-        if (isHorizontal)
-            animator.SetBool("isHorizontal", true);
-        else
-            animator.SetBool("isHorizontal", false);
 
-        if (isDown)
-            animator.SetBool("isDown", true);
-        else
-            animator.SetBool("isDown", false);
-    }
-    private void JumpingAnimation()
+    private void Jump()
     {
-        if (Input.GetButtonDown("Jump"))
+        if(Input.GetButton("Jump"))
         {
             jump = true;
-            animator.SetBool("IsJumping", true);
+            animator.SetBool("isJumping", true);
         }
-
+        else
+        {
+            StopJumping();
+        }
+        
+    }
+    private void StopJumping()
+    {
+        jump = false;
+        animator.SetBool("isJumping", false);
     }
     public void StopShooting() //gets called in animator as an animation event
     {
