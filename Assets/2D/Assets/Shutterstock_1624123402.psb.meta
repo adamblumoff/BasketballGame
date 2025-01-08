@@ -104,9 +104,9 @@ ScriptedImporter:
     rect:
       serializedVersion: 2
       x: 4
-      y: 4
+      y: 232
       width: 1091
-      height: 911
+      height: 683
     spriteID: 61d40a56716042447912d38841103469
     spriteBone: []
     spriteOutline: []

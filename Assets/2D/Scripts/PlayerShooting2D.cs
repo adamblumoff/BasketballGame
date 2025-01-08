@@ -47,7 +47,8 @@ private Ray ray;
         }
         rb = basketball.GetComponent<Rigidbody2D>();
         player_mov = GetComponent<PlayerMovement2D>();
-
+        basketball.transform.SetParent(transform);
+        rb.simulated = false;
     }
     void Update()
     {
@@ -90,7 +91,7 @@ private Ray ray;
         
         rb.linearVelocity = Vector2.zero;
         rb.angularVelocity = 0;
-        rb.bodyType = RigidbodyType2D.Dynamic;
+        rb.simulated = true;
 
         rb.transform.SetParent(null);
         rb.AddForce(GetDirection() * shootingPower, ForceMode2D.Impulse);
@@ -105,33 +106,35 @@ private Ray ray;
         animator.SetBool("isDribbling", false);
         //animator.SetBool("isCrossover", false);
         basketball.transform.SetParent(transform);
+        basketball.transform.rotation = Quaternion.Euler(0, 0, 0);
         animator.enabled = true;
         player_mov.isShooting = false;
+        rb.simulated = false;
         
     }
      private void DrawProjection()
     {
         LineRenderer.enabled = true;
         LineRenderer.positionCount = Mathf.CeilToInt(LinePoints / TimeBetweenPoints) + 1;
-        
-        Vector2 direction = GetDirection();
 
-        Vector2 startPosition = ReleasePosition.position;
-        Vector2 startVelocity = shootingPower * direction / rb.mass;
+        Vector3 direction = GetDirection();
+
+        Vector3 startPosition = ReleasePosition.position + new Vector3(0f, .5f, 0f);
+        Vector3 startVelocity = shootingPower * direction / rb.mass;
         int i = 0;
         LineRenderer.SetPosition(i, startPosition);
         for (float time = 0; time < LinePoints; time += TimeBetweenPoints)
         {
             i++;
-            Vector2 point = startPosition + time * startVelocity;
+            Vector3 point = startPosition + time * startVelocity;
             point.y = startPosition.y + startVelocity.y * time + (Physics.gravity.y / 2f * time * time);
 
             LineRenderer.SetPosition(i, point);
 
-            Vector2 lastPosition = LineRenderer.GetPosition(i - 1);
+            Vector3 lastPosition = LineRenderer.GetPosition(i - 1);
 
-            if (Physics.Raycast(lastPosition, 
-                (point - lastPosition).normalized, 
+            if (Physics.Raycast(lastPosition,
+                (point - lastPosition).normalized,
                 out RaycastHit hit,
                 (point - lastPosition).magnitude,
                 BasketballCollisionMask))
@@ -139,16 +142,16 @@ private Ray ray;
                 LineRenderer.SetPosition(i, hit.point);
                 LineRenderer.positionCount = i + 1;
                 return;
-            } 
+            }
         }
-        
     }
+
     private Vector2 GetDirection()
     {
         
         distance = Mathf.Sqrt(Vector2.Distance(end_position.position, ReleasePosition.position));
         
-        if(distance <= 2.75f)
+        /* if(distance <= 2.75f)
         {
             rb.mass = .36f;
             shootingPower = 1f;
@@ -162,9 +165,9 @@ private Ray ray;
         {
             rb.mass = .35f;
             shootingPower = 1.0f;
-        }
+        } */
     
-        direction = end_position.position - ReleasePosition.position + new Vector3(0f, 1f);
+        direction = end_position.position - ReleasePosition.position + new Vector3(0f, 1f, 0f);
         return direction;
 
     }
