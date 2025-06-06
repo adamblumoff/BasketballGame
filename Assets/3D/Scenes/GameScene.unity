@@ -839,6 +839,16 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 92183230618010180, guid: 2b84323a1d6ef434fbe36c25ed169d6f,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 536932882939228884, guid: 2b84323a1d6ef434fbe36c25ed169d6f,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1122039559550392765, guid: 2b84323a1d6ef434fbe36c25ed169d6f,
         type: 3}
       propertyPath: m_CastShadows
@@ -939,6 +949,11 @@ PrefabInstance:
       propertyPath: m_DynamicOccludee
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 6037067972484556528, guid: 2b84323a1d6ef434fbe36c25ed169d6f,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6092162378690642673, guid: 2b84323a1d6ef434fbe36c25ed169d6f,
         type: 3}
       propertyPath: animator
@@ -949,6 +964,11 @@ PrefabInstance:
       propertyPath: playerMovement
       value: 
       objectReference: {fileID: 260520409}
+    - target: {fileID: 6254415341609858225, guid: 2b84323a1d6ef434fbe36c25ed169d6f,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7099045626138564063, guid: 2b84323a1d6ef434fbe36c25ed169d6f,
         type: 3}
       propertyPath: m_StaticEditorFlags
@@ -957,6 +977,11 @@ PrefabInstance:
     - target: {fileID: 7281788849013369607, guid: 2b84323a1d6ef434fbe36c25ed169d6f,
         type: 3}
       propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8033473285830705593, guid: 2b84323a1d6ef434fbe36c25ed169d6f,
+        type: 3}
+      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
